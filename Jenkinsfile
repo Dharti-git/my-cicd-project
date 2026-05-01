@@ -1,7 +1,5 @@
-
 pipeline {
     agent any
-    
     stages {
         stage('Test') {
             steps {
@@ -9,14 +7,12 @@ pipeline {
                 sh 'npm test'
             }
         }
-        
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image...'
                 sh 'docker build -t my-simple-app .'
             }
         }
-        
         stage('Run Container') {
             steps {
                 echo 'Starting container...'
